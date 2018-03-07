@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "author": "Alexandre Gaudet",
-  "homepage":"/react_ui",
+  "homepage": "/react_ui",
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
