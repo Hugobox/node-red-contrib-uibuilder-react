@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/node-red/red.js -v -u .",
+    "start_linux": "./node_modules/node-red/red.js -v -u .",
+    "start": "node node_modules/node-red/red.js -v -u .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
