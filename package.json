@@ -7,7 +7,9 @@
   "scripts": {
     "start_unix": "./node_modules/node-red/red.js -v -u .",
     "start": "node node_modules/node-red/red.js -v -u .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link": "ln -s uibuilder/react_ui/src/react_webix/build uibuilder/react_ui/dist",
+    "mklink": "mklink /D uibuilder/react_ui/src/react_webix/build uibuilder/react_ui/dist"
   },
   "license": "ISC",
   "dependencies": {
@@ -15,6 +17,7 @@
     "node-red": "^0.18.4",
     "node-red-contrib-uibuilder": "^1.0.6",
     "reactjs": "^1.0.0",
-    "riot": "^3.9.0"
+    "riot": "^3.9.0",
+    "react_webix": "uibuilder\\react_ui\\src\\react_webix"
   }
 }

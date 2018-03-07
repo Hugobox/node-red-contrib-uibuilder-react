@@ -11,8 +11,8 @@ Use React as normal, and build when the site is ready.
 1. `cd uibuilder\react_ui\src\react_webix`
 2. `npm install`
 3. `npm run build`
-4. `ln -s uibuilder/react_ui/src/react_webix/build uibuilder/react_ui/dist`
 5. `cd ../../../..`
+4. `ln -s uibuilder/react_ui/src/react_webix/build uibuilder/react_ui/dist`
 6. `npm install`
 7. `npm start`
 8. Open your browser at `localhost:1880/react_ui`
