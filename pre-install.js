@@ -2,34 +2,35 @@ var fs = require('fs')
 var process = require('process')
 
 class InstallReactAndNodered {
-  constructor() {
-
+  constructor(uibuilderNodeName) {
+      this.uibuilderRelativePath = "/uibuilder/" + uibuilderNodeName + "/src/react_webix/"
+      this.uibuilderDistRelativePath = '/uibuilder/' + uibuilderNodeName + '/dist/'
   }
   // Getter
   installReact() {
-	let err = "ok"
+	let stdout = "ok"
 
-	var react = process.cwd()+'/uibuilder/react_ui/src/react_webix/'
+	var react = process.cwd() + this.uibuilderRelativePath
 	console.log('Installing ReactJS in cwd: ' + react);
-	require('child_process').execSync('npm install '+ react, {cwd:react}, function(err,stdout,stderr){
-		console.log('err: ' + err)
-  		console.log('stdout: ' + stdout)
-  		console.log('stderr: ' + stderr)
-	    })
-	require('child_process').execSync('npm run build', {cwd:react}, function(err,stdout,stderr){
-		console.log('err: ' + err)
-  		console.log('stdout: ' + stdout)
-  		console.log('stderr: ' + stderr)
-		    })
+	stdout = require('child_process').execSync('npm install '+ react, {cwd:react})
+    if(stdout.status){
+        console.log(stdout)
+        process.exit()
+    }
+	stdout = require('child_process').execSync('npm run build', {cwd:react})
+    if(stdout.status){
+        console.log(stdout)
+        process.exit()
+    }
 
-    return err
+    return stdout
   }
 
   installNodeRed() {
   let err = "ok"
   console.log("Creating Symlink in cwd: " + process.cwd())
 
-  fs.symlink(process.cwd() + '/uibuilder/react_ui/src/react_webix/build/', process.cwd() + '/uibuilder/react_ui/dist/', 'junction', function(err,stdout,stderr){
+  fs.symlink(process.cwd() + this.uibuilderRelativePath + 'build/', process.cwd() + this.uibuilderDistRelativePath, 'junction', function(err,stdout,stderr){
 	  console.log('err: ' + err)
 	  console.log('stdout: ' + stdout)
 	  console.log('stderr: ' + stderr)
@@ -37,13 +38,13 @@ class InstallReactAndNodered {
 
 	console.log('"Installing NodeRed" cwd: ' + process.cwd());
 	var react = process.cwd()+ './'
-	require('child_process').execSync('npm install ', {cwd:react}, function(err,stdout,stderr){
-		console.log('err: ' + err)
-		console.log('stdout: ' + stdout)
-		console.log('stderr: ' + stderr)
-	  })
+	stdout = require('child_process').execSync('npm install ', {cwd:react})
+    if(stdout.status){
+        console.log(stdout)
+        process.exit()
+    }
 
-	return err
+	return stdout
   }
 
   execute() {
@@ -56,8 +57,9 @@ class InstallReactAndNodered {
   }
 }
 
-const install = new InstallReactAndNodered();
-
-install.execute()
+const react_ui = new InstallReactAndNodered("react_ui");
+react_ui.execute()
+// const snw = new InstallReactAndNodered("snw");
+// snw.execute()
 
 console.log("Install Done")
