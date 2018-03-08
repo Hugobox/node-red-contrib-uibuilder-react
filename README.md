@@ -8,16 +8,12 @@ Use React as normal, and build when the site is ready.
 
 # How to use?
 
-1. `cd uibuilder\react_ui\src\react_webix`
-2. `npm install`
-3. `npm run build`
-5. `cd ../../../..`
-4. `ln -s uibuilder/react_ui/src/react_webix/build uibuilder/react_ui/dist`
-6. `npm install`
-7. `npm start`
-8. Open your browser at `localhost:1880/react_ui`
+`npm install`
+`npm start`
 
-# From scratch
+
+
+# To install from scratch
 1. From scratch, install node-red and uibuilder.
 2. Create a uibuilder node name it react_ui and deploy (you can choose automatic creation of .html and .css files)
 3. 'cd uibuilder'

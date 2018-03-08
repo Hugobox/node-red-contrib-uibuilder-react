@@ -8,8 +8,7 @@
     "start_unix": "./node_modules/node-red/red.js -v -u .",
     "start": "node node_modules/node-red/red.js -v -u .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "link": "ln -s uibuilder/react_ui/src/react_webix/build uibuilder/react_ui/dist",
-    "mklink": "mklink /D uibuilder/react_ui/src/react_webix/build uibuilder/react_ui/dist"
+    "pre-install": "node pre-install"
   },
   "license": "ISC",
   "dependencies": {
