@@ -14,12 +14,12 @@ class InstallReactAndNodered {
 	console.log('Installing ReactJS in cwd: ' + react);
 	stdout = require('child_process').execSync('npm install '+ react, {cwd:react})
     if(stdout.status){
-        console.log(stdout)
+        console.log(stdout.status)
         process.exit()
     }
 	stdout = require('child_process').execSync('npm run build', {cwd:react})
     if(stdout.status){
-        console.log(stdout)
+        console.log(stdout.status)
         process.exit()
     }
 
@@ -36,15 +36,13 @@ class InstallReactAndNodered {
 	  console.log('stderr: ' + stderr)
 	})
 
-	console.log('"Installing NodeRed" cwd: ' + process.cwd());
-	var react = process.cwd()+ './'
-	stdout = require('child_process').execSync('npm install ', {cwd:react})
-    if(stdout.status){
-        console.log(stdout)
-        process.exit()
-    }
-
-	return stdout
+	// console.log('"Installing NodeRed" cwd: ' + process.cwd());
+	// var react = process.cwd()+ './'
+	// stdout = require('child_process').execSync('npm install ', {cwd:react})
+    // if(stdout.status){
+    //     console.log(stdout)
+    //     process.exit()
+    // }
   }
 
   execute() {
